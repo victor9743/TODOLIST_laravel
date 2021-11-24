@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-use App\Http\Controllers\issues_controller;
+use App\Http\Controllers\issue_controller;
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/issues', [issues_controller::class, 'index']);
+
+Route::get('/issues', [issue_controller::class, 'issues']);
+Route::post('/issues', [issue_controller::class, 'store_issue']);
+Route::get("/issues/{id}",[issue_controller::class, 'findById']);
+Route::put('/issues/{id}',[issue_controller::class, 'update_issue']);

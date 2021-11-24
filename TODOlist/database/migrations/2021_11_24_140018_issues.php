@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class IssuesLaravel extends Migration
+class Issues extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class IssuesLaravel extends Migration
      */
     public function up()
     {
-        Schema::create('issues_laravel', function (Blueprint $table) {
+        //
+        Schema::create('issues', function(Blueprint $table){
             $table->id();
             $table->string('desc');
             $table->date('create_at');
             $table->boolean('todo');
             $table->boolean('doing');
             $table->boolean('done');
-            
-          
-            
+            $table->timestamps();
         });
     }
 
@@ -34,6 +33,6 @@ class IssuesLaravel extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('issues_laravel');
+        Schema::dropIfExists('issues');
     }
 }
